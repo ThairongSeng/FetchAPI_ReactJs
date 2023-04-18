@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react'
 
     const [products , setProducts] = useState ([]);
     const fetchProducts = () => {
-        fetch('https://api.escuelajs.co/api/v1/products')
+        fetch('https://dummyjson.com/products')
         .then(res => res.json())
-        .then(Response => setProducts(Response))
+        .then(Response => setProducts(Response.products))
     }
     useEffect(() => {
        fetchProducts()
@@ -21,7 +21,8 @@ import React, { useEffect, useState } from 'react'
                     <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Image</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Category</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +34,8 @@ import React, { useEffect, useState } from 'react'
                             <td>{product.title}</td>
                             <td>{product.description}</td>
                             <td>{product.price}</td>
-                            <td> <img src={product.images} style={{width : '50px'}}/></td>
+                            <td>{product.brand}</td>
+                            <td>{product.brand}</td>
                         </tr>
                     </>
                 )}
